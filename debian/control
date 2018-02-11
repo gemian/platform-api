@@ -117,7 +117,7 @@ Architecture: all
 Replaces: libplatform-api1-doc (<< 3.0.0)
 Breaks: libplatform-api1-doc (<< 3.0.0)
 Depends: ${misc:Depends},
-         libubuntu-application-api-dev (= ${binary:Version}),
+         libubuntu-application-api-dev,
 Description: Platform API for system level capabilities (development)
  This package provides the developer documentation for the Platform API.
 
@@ -198,7 +198,7 @@ Description: dummy transitional package for libplatform-hardware-api-headers
 Package: libplatform-api1-dev
 Section: oldlibs
 Architecture: all
-Depends: libubuntu-application-api-dev (= ${binary:Version}),
+Depends: libubuntu-application-api-dev,
          ${misc:Depends},
 Description: dummy transitional package for libplatform-api1-dev
  This is a dummy transitional package, please use libubuntu-application-api-dev
@@ -206,7 +206,7 @@ Description: dummy transitional package for libplatform-api1-dev
 Package: libplatform-hardware-api1-dev
 Section: oldlibs
 Architecture: all
-Depends: libubuntu-platform-hardware-api-dev (= ${binary:Version}),
+Depends: libubuntu-platform-hardware-api-dev,
          ${misc:Depends},
 Description: dummy transitional package for libplatform-hardware-api1-dev
  This is a dummy transitional package, please use libubuntu-platform-hardware-api-dev
