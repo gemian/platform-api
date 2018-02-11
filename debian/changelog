@@ -1,3 +1,9 @@
+platform-api (3.0.2+gemian) stretch; urgency=medium
+
+  * Building for gemian.
+
+ -- Adam Boardman <adamboardman@gmail.com>  Sun, 11 Feb 2018 11:56:03 +0000
+
 platform-api (3.0.2+ubports) xenial; urgency=medium
 
   * Imported to UBports
