@@ -61,7 +61,7 @@ Multi-Arch: same
 Depends: ${misc:Depends},
          libgles2-mesa-dev,
          libubuntu-application-api-headers (= ${binary:Version}),
-         libubuntu-application-api3,
+         libubuntu-application-api3 (= ${binary:Version}),
          ubuntu-application-api3-touch (= ${binary:Version}),
          ubuntu-application-api3-desktop (= ${binary:Version}),
          libmirclient-dev,
@@ -105,7 +105,7 @@ Multi-Arch: same
 Depends: ${misc:Depends},
          libgles2-mesa-dev,
          libubuntu-platform-hardware-api-headers (= ${binary:Version}),
-         libubuntu-platform-hardware-api3
+         libubuntu-platform-hardware-api3 (= ${binary:Version}),
 Suggests: libubuntu-application-api-doc,
 Description: Platform API for system level capabilities (development)
  This package provides the development library and headers (via
@@ -117,7 +117,7 @@ Architecture: all
 Replaces: libplatform-api1-doc (<< 3.0.0)
 Breaks: libplatform-api1-doc (<< 3.0.0)
 Depends: ${misc:Depends},
-         libubuntu-application-api-dev,
+         libubuntu-application-api-dev (= ${binary:Version}),
 Description: Platform API for system level capabilities (development)
  This package provides the developer documentation for the Platform API.
 
@@ -141,7 +141,7 @@ Pre-Depends: ${misc:Pre-Depends},
 Multi-Arch: same
 Depends: ${misc:Depends},
          ${shlibs:Depends},
-         ubuntu-application-api3-test,
+         ubuntu-application-api3-test (= ${binary:Version}),
 Description: Hybris implementation of the Platform API (runtime)
  This package provides the hybris implementation of the Platform API.
  .
@@ -198,7 +198,7 @@ Description: dummy transitional package for libplatform-hardware-api-headers
 Package: libplatform-api1-dev
 Section: oldlibs
 Architecture: all
-Depends: libubuntu-application-api-dev,
+Depends: libubuntu-application-api-dev (= ${binary:Version}),
          ${misc:Depends},
 Description: dummy transitional package for libplatform-api1-dev
  This is a dummy transitional package, please use libubuntu-application-api-dev
@@ -206,7 +206,7 @@ Description: dummy transitional package for libplatform-api1-dev
 Package: libplatform-hardware-api1-dev
 Section: oldlibs
 Architecture: all
-Depends: libubuntu-platform-hardware-api-dev,
+Depends: libubuntu-platform-hardware-api-dev (= ${binary:Version}),
          ${misc:Depends},
 Description: dummy transitional package for libplatform-hardware-api1-dev
  This is a dummy transitional package, please use libubuntu-platform-hardware-api-dev
