@@ -58,7 +58,6 @@ option(
 )
 
 find_package(PkgConfig)
-pkg_check_modules(MIRCLIENT REQUIRED mirclient)
 
 # Try to find hybris, and disable hybris from build if not found
 find_library(Hybris

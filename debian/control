@@ -11,11 +11,9 @@ Build-Depends: android-headers,
                libhybris-common-dev,
                pkg-config,
                libdbus-1-dev,
-               libdbus-cpp-dev (>= 4.0.0),
-               libubuntu-location-service-dev (>= 1.0.0),
+#               libdbus-cpp5,
                libgtest-dev,
-               libprocess-cpp-dev (>= 0.0.1+14.04.20131212),
-               libproperties-cpp-dev,
+#               libprocess-cpp3,
 Standards-Version: 3.9.8
 Homepage: https://github.com/gemian/platform-api
 Vcs-Git: https://github.com/gemian/platform-api.git
@@ -61,7 +59,7 @@ Multi-Arch: same
 Depends: ${misc:Depends},
          libgles2-mesa-dev,
          libubuntu-application-api-headers (= ${binary:Version}),
-         libubuntu-application-api3 (= ${binary:Version}),
+         libubuntu-application-api3,
          ubuntu-application-api3-touch (= ${binary:Version}),
          ubuntu-application-api3-desktop (= ${binary:Version}),
          libmirclient-dev,
@@ -105,7 +103,7 @@ Multi-Arch: same
 Depends: ${misc:Depends},
          libgles2-mesa-dev,
          libubuntu-platform-hardware-api-headers (= ${binary:Version}),
-         libubuntu-platform-hardware-api3 (= ${binary:Version}),
+         libubuntu-platform-hardware-api3
 Suggests: libubuntu-application-api-doc,
 Description: Platform API for system level capabilities (development)
  This package provides the development library and headers (via
@@ -141,7 +139,7 @@ Pre-Depends: ${misc:Pre-Depends},
 Multi-Arch: same
 Depends: ${misc:Depends},
          ${shlibs:Depends},
-         ubuntu-application-api3-test (= ${binary:Version}),
+         ubuntu-application-api3-test,
 Description: Hybris implementation of the Platform API (runtime)
  This package provides the hybris implementation of the Platform API.
  .
