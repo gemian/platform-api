@@ -10,10 +10,12 @@ Build-Depends: android-headers,
                libgles2-mesa-dev,
                libhybris-common-dev,
                pkg-config,
+               libc6-dev,
                libdbus-1-dev,
-#               libdbus-cpp5,
+               libdbus-cpp-dev,
                libgtest-dev,
-#               libprocess-cpp3,
+               libprocess-cpp-dev,
+               libproperties-cpp-dev,
 Standards-Version: 3.9.8
 Homepage: https://github.com/gemian/platform-api
 Vcs-Git: https://github.com/gemian/platform-api.git
