@@ -105,7 +105,7 @@ Multi-Arch: same
 Depends: ${misc:Depends},
          libgles2-mesa-dev,
          libubuntu-platform-hardware-api-headers (= ${binary:Version}),
-         libubuntu-platform-hardware-api3 (= ${binary:Version})
+         libubuntu-platform-hardware-api3
 Suggests: libubuntu-application-api-doc,
 Description: Platform API for system level capabilities (development)
  This package provides the development library and headers (via
