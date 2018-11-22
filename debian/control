@@ -10,7 +10,6 @@ Build-Depends: android-headers,
                libgles2-mesa-dev,
                libhybris-common-dev,
                pkg-config,
-               libc6-dev,
                libdbus-1-dev,
                libdbus-cpp-dev,
                libgtest-dev,
@@ -61,7 +60,7 @@ Multi-Arch: same
 Depends: ${misc:Depends},
          libgles2-mesa-dev,
          libubuntu-application-api-headers (= ${binary:Version}),
-         libubuntu-application-api3,
+         libubuntu-application-api3 (= ${binary:Version}),
          ubuntu-application-api3-touch (= ${binary:Version}),
          ubuntu-application-api3-desktop (= ${binary:Version}),
          libmirclient-dev,
@@ -105,7 +104,7 @@ Multi-Arch: same
 Depends: ${misc:Depends},
          libgles2-mesa-dev,
          libubuntu-platform-hardware-api-headers (= ${binary:Version}),
-         libubuntu-platform-hardware-api3
+         libubuntu-platform-hardware-api3 (= ${binary:Version}),
 Suggests: libubuntu-application-api-doc,
 Description: Platform API for system level capabilities (development)
  This package provides the development library and headers (via
@@ -141,7 +140,7 @@ Pre-Depends: ${misc:Pre-Depends},
 Multi-Arch: same
 Depends: ${misc:Depends},
          ${shlibs:Depends},
-         ubuntu-application-api3-test,
+         ubuntu-application-api3-test (= ${binary:Version}),
 Description: Hybris implementation of the Platform API (runtime)
  This package provides the hybris implementation of the Platform API.
  .
