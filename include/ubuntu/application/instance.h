@@ -25,8 +25,6 @@
 #include <ubuntu/application/description.h>
 #include <ubuntu/application/options.h>
 
-//#include <mir_toolkit/mir_client_library.h>
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -52,19 +50,6 @@ extern "C" {
         UApplicationDescription *desc,
         UApplicationOptions *options);
     
-    /**
-     * \brief Return the MirConnection associated with an application instance.
-     *        Use of MirConnection with the mir client API is now the preferred
-     *        way to create and use application surfaces. The ua_ui_ namespace
-     *        is now deprecated.
-     * \ingroup application_support
-     * \param[in] instance The instance from which to retreive the MirConnection
-     */
-//    UBUNTU_DLL_PUBLIC MirConnection*
-//    u_application_instance_get_mir_connection(
-//        UApplicationInstance *instance);
-
-
     /**
      * \brief Increments the reference count of an application instance.
      * \ingroup application_support
