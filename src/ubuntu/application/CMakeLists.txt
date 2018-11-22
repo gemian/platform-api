@@ -11,7 +11,6 @@ include_directories(
 include_directories(../../bridge)
 
 add_subdirectory(common)
-add_subdirectory(desktop)
 add_subdirectory(touch)
 add_subdirectory(testbackend)
 
