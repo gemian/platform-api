@@ -29,13 +29,6 @@
 #include <ubuntu/application/sensors/orientation.h>
 #include <ubuntu/application/sensors/haptic.h>
 
-#include <ubuntu/application/location/service.h>
-#include <ubuntu/application/location/heading_update.h>
-#include <ubuntu/application/location/position_update.h>
-#include <ubuntu/application/location/velocity_update.h>
-
-#include <ubuntu/application/url_dispatcher/service.h>
-
 #include <ubuntu/application/init.h>
 
 #include "base_module.h"
@@ -151,57 +144,6 @@ IMPLEMENT_FUNCTION1(sensors, uint64_t, uas_orientation_event_get_timestamp, UASO
 IMPLEMENT_FUNCTION2(sensors, UStatus, uas_orientation_event_get_azimuth, UASOrientationEvent*, float*);
 IMPLEMENT_FUNCTION2(sensors, UStatus, uas_orientation_event_get_pitch, UASOrientationEvent*, float*);
 IMPLEMENT_FUNCTION2(sensors, UStatus, uas_orientation_event_get_roll, UASOrientationEvent*, float*);
-
-// Location
-
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_service_controller_ref, UALocationServiceController*);
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_service_controller_unref, UALocationServiceController*);
-IMPLEMENT_VOID_FUNCTION3(location, ua_location_service_controller_set_status_changed_handler, UALocationServiceController*, UALocationServiceStatusChangedHandler, void*);
-IMPLEMENT_FUNCTION2(location, UStatus, ua_location_service_controller_query_status, UALocationServiceController*, UALocationServiceStatusFlags*);
-IMPLEMENT_FUNCTION1(location, UStatus, ua_location_service_controller_enable_service, UALocationServiceController*);
-IMPLEMENT_FUNCTION1(location, UStatus, ua_location_service_controller_disable_service, UALocationServiceController*);
-IMPLEMENT_FUNCTION1(location, UStatus, ua_location_service_controller_enable_gps, UALocationServiceController*);
-IMPLEMENT_FUNCTION1(location, UStatus, ua_location_service_controller_disable_gps, UALocationServiceController*);
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_heading_update_ref, UALocationHeadingUpdate*);
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_heading_update_unref, UALocationHeadingUpdate*);
-IMPLEMENT_FUNCTION1(location, uint64_t, ua_location_heading_update_get_timestamp, UALocationHeadingUpdate*);
-IMPLEMENT_FUNCTION1(location, double, ua_location_heading_update_get_heading_in_degree, UALocationHeadingUpdate*);
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_position_update_ref, UALocationPositionUpdate*);
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_position_update_unref, UALocationPositionUpdate*);
-IMPLEMENT_FUNCTION1(location, uint64_t, ua_location_position_update_get_timestamp, UALocationPositionUpdate*);
-IMPLEMENT_FUNCTION1(location, double, ua_location_position_update_get_latitude_in_degree, UALocationPositionUpdate*);
-IMPLEMENT_FUNCTION1(location, double, ua_location_position_update_get_longitude_in_degree, UALocationPositionUpdate*);
-IMPLEMENT_FUNCTION1(location, bool, ua_location_position_update_has_altitude, UALocationPositionUpdate*);
-IMPLEMENT_FUNCTION1(location, double, ua_location_position_update_get_altitude_in_meter, UALocationPositionUpdate*);
-IMPLEMENT_FUNCTION1(location, bool, ua_location_position_update_has_horizontal_accuracy, UALocationPositionUpdate*);
-IMPLEMENT_FUNCTION1(location, double, ua_location_position_update_get_horizontal_accuracy_in_meter, UALocationPositionUpdate*);
-IMPLEMENT_FUNCTION1(location, bool, ua_location_position_update_has_vertical_accuracy, UALocationPositionUpdate*);
-IMPLEMENT_FUNCTION1(location, double, ua_location_position_update_get_vertical_accuracy_in_meter, UALocationPositionUpdate*);
-IMPLEMENT_FUNCTION1(location, UALocationServiceSession*, ua_location_service_create_session_for_low_accuracy, UALocationServiceRequirementsFlags);
-IMPLEMENT_FUNCTION2(location, UALocationServiceSession*, ua_location_service_try_create_session_for_low_accuracy, UALocationServiceRequirementsFlags, UALocationServiceError*);
-IMPLEMENT_FUNCTION1(location, UALocationServiceSession*, ua_location_service_create_session_for_high_accuracy, UALocationServiceRequirementsFlags);
-IMPLEMENT_FUNCTION2(location, UALocationServiceSession*, ua_location_service_try_create_session_for_high_accuracy, UALocationServiceRequirementsFlags, UALocationServiceError*);
-IMPLEMENT_CTOR0(location, UALocationServiceController*, ua_location_service_create_controller);
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_service_session_ref, UALocationServiceSession*);
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_service_session_unref, UALocationServiceSession*);
-IMPLEMENT_VOID_FUNCTION3(location, ua_location_service_session_set_position_updates_handler, UALocationServiceSession*, UALocationServiceSessionPositionUpdatesHandler, void*);
-IMPLEMENT_VOID_FUNCTION3(location, ua_location_service_session_set_heading_updates_handler, UALocationServiceSession*, UALocationServiceSessionHeadingUpdatesHandler, void*);
-IMPLEMENT_VOID_FUNCTION3(location, ua_location_service_session_set_velocity_updates_handler, UALocationServiceSession*, UALocationServiceSessionVelocityUpdatesHandler, void*);
-IMPLEMENT_FUNCTION1(location, UStatus, ua_location_service_session_start_position_updates, UALocationServiceSession*);
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_service_session_stop_position_updates, UALocationServiceSession*);
-IMPLEMENT_FUNCTION1(location, UStatus, ua_location_service_session_start_heading_updates, UALocationServiceSession*);
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_service_session_stop_heading_updates, UALocationServiceSession*);
-IMPLEMENT_FUNCTION1(location, UStatus, ua_location_service_session_start_velocity_updates, UALocationServiceSession*);
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_service_session_stop_velocity_updates, UALocationServiceSession*);
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_velocity_update_ref, UALocationVelocityUpdate*);
-IMPLEMENT_VOID_FUNCTION1(location, ua_location_velocity_update_unref, UALocationVelocityUpdate*);
-IMPLEMENT_FUNCTION1(location, uint64_t, ua_location_velocity_update_get_timestamp, UALocationVelocityUpdate*);
-IMPLEMENT_FUNCTION1(location, double, ua_location_velocity_update_get_velocity_in_meters_per_second, UALocationVelocityUpdate*);
-
-// URL Dispatcher
-
-IMPLEMENT_CTOR0(url_dispatcher, UAUrlDispatcherSession*, ua_url_dispatcher_session);
-IMPLEMENT_VOID_FUNCTION4(url_dispatcher, ua_url_dispatcher_session_open, UAUrlDispatcherSession*, const char*, UAUrlDispatcherSessionDispatchHandler, void*);
 
 #ifdef __cplusplus
 }
