@@ -37,6 +37,8 @@
 extern "C" {
 #endif
 
+typedef struct MirConnection MirConnection;
+
 // Application Module Config
 IMPLEMENT_VOID_FUNCTION3(init, u_application_module_version, uint32_t*, uint32_t*, uint32_t*);
 IMPLEMENT_VOID_FUNCTION1(init, u_application_init, void*);
@@ -69,6 +71,7 @@ IMPLEMENT_VOID_FUNCTION1(instance, u_application_options_destroy, UApplicationOp
 
 // UApplicationInstance
 IMPLEMENT_FUNCTION2(instance, UApplicationInstance*, u_application_instance_new_from_description_with_options, UApplicationDescription*, UApplicationOptions*);
+IMPLEMENT_FUNCTION1(connection, MirConnection*, u_application_instance_get_mir_connection, UApplicationInstance*);
 
 // Ubuntu Application Sensors
 

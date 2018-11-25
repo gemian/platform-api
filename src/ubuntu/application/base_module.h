@@ -31,6 +31,7 @@
 #define API_VERSION_MINOR   "0"
 #define API_VERSION_PATCH   "0"
 #define SO_SUFFIX ".so." API_VERSION_MAJOR "." API_VERSION_MINOR "." API_VERSION_PATCH
+#define PLATFORM_MODULE "touch_mirclient"
 
 namespace internal
 {
@@ -44,37 +45,19 @@ struct HIDDEN_SYMBOL ToBackend
     {
         static char* cache = NULL;
         static char path[64];
-        char module_name[32];
 
         if (cache == NULL) {
             cache = secure_getenv("UBUNTU_PLATFORM_API_BACKEND");
             if (cache == NULL) {
-                FILE *conf;
-                conf = fopen("/etc/ubuntu-platform-api/application.conf", "r");
-                if (conf != NULL) {
-                    if (fgets(module_name, 32, conf)) {
-                        cache = module_name;
-                        // Null terminate module blob
-                        cache[strlen(cache)-1] = '\0';
-                        fclose(conf);
-                    }
-                    else
-                        fprintf(stderr, "Error reading module name from file.\n");
-                }
+			    cache = PLATFORM_MODULE;
             }
-            if (cache == NULL) {
-                // No module available, use dummy.
-                fprintf(stderr, "Unable to select module, using null backend.\n");
-                return NULL;
-            } else {
-                strcpy(path, "libubuntu_application_api_");
-                
-                if (strlen(cache) > MAX_MODULE_NAME)
-                    exit_module("Selected module is invalid");
-                
-                strcat(path, cache);
-                strcat(path, SO_SUFFIX);
-            }
+            strcpy(path, "libubuntu_application_api_");
+
+            if (strlen(cache) > MAX_MODULE_NAME)
+                exit_module("Selected module is invalid");
+
+            strcat(path, cache);
+            strcat(path, SO_SUFFIX);
 
             fprintf(stderr, "Loading module: '%s'\n", path);
         }
