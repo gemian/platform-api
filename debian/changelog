@@ -1,4 +1,4 @@
-platform-api (3.0.2+gemian) stretch; urgency=medium
+platform-api (3.0.3+gemian) stretch; urgency=medium
 
   * Building for gemian.
 
