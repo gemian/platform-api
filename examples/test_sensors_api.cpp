@@ -89,6 +89,23 @@ int main(int argc, char** argv)
     UASensorsLight* ambientlight = ua_sensors_light_new();
     UASensorsOrientation* orientation = ua_sensors_orientation_new();
 
+    if (!accelerometer) {
+        printf("accelerometer device unavailable\n");
+        return 1;
+    }
+    if (!proximity) {
+        printf("proximity device unavailable\n");
+        return 1;
+    }
+    if (!ambientlight) {
+        printf("ambientlight device unavailable\n");
+        return 1;
+    }
+    if (!orientation) {
+        printf("orientation device unavailable\n");
+        return 1;
+    }
+
     ua_sensors_accelerometer_set_reading_cb(accelerometer,
                                             on_new_accelerometer_event,
                                             NULL);
