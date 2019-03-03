@@ -13,6 +13,7 @@ override_dh_auto_configure:
 override_dh_install:
 	#clean gmock/gtest if it built in our build dir
 	rm -f debian/tmp/usr/lib/libgmock*.a debian/tmp/usr/lib/libgtest*.a
+	rm -f debian/tmp/usr/lib/*/libgmock*.a debian/tmp/usr/lib/*/libgtest*.a
 	rm -rf debian/tmp/usr/include/gmock debian/tmp/usr/include/gtest
 
 	dh_install --fail-missing
