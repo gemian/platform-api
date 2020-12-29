@@ -177,7 +177,7 @@ TESTP_F(SimBackendTest, ProximityEvents, {
     event_time = time_point_system_ns(std::chrono::nanoseconds(e.timestamp));
     delay = chrono::duration_cast<chrono::milliseconds>(event_time - start_time).count();
     EXPECT_GE(delay, 130);
-    EXPECT_LE(delay, 170);
+    EXPECT_LE(delay, 190);
 
     e = events.front();
     events.pop();
@@ -185,7 +185,7 @@ TESTP_F(SimBackendTest, ProximityEvents, {
     event_time = time_point_system_ns(std::chrono::nanoseconds(e.timestamp));
     delay = chrono::duration_cast<chrono::milliseconds>(event_time - start_time).count();
     EXPECT_GE(delay, 210);
-    EXPECT_LE(delay, 250);
+    EXPECT_LE(delay, 280);
 })
 
 TESTP_F(SimBackendTest, LightEvents, {
@@ -208,7 +208,7 @@ TESTP_F(SimBackendTest, LightEvents, {
                          (UASProximityDistance) 0, ctx});
         }, NULL);
 
-    usleep(130000);
+    usleep(150000);
     EXPECT_EQ(2, events.size());
 
     auto e = events.front();
@@ -217,7 +217,7 @@ TESTP_F(SimBackendTest, LightEvents, {
     EXPECT_EQ(NULL, e.context);
     auto event_time = time_point_system_ns(std::chrono::nanoseconds(e.timestamp));
     auto delay = chrono::duration_cast<chrono::milliseconds>(event_time - start_time).count();
-    EXPECT_LE(delay, 10);
+    EXPECT_LE(delay, 20);
 
     e = events.front();
     events.pop();
@@ -225,7 +225,7 @@ TESTP_F(SimBackendTest, LightEvents, {
     event_time = time_point_system_ns(std::chrono::nanoseconds(e.timestamp));
     delay = chrono::duration_cast<chrono::milliseconds>(event_time - start_time).count();
     EXPECT_GE(delay, 91);
-    EXPECT_LE(delay, 112);
+    EXPECT_LE(delay, 140);
 })
 
 TESTP_F(SimBackendTest, AccelEvents, {
