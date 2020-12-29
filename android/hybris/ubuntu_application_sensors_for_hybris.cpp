@@ -93,6 +93,7 @@ static const char* instance_package_name = init_instance_package_name();
 static const ForwardSensorTypeLut forward_sensor_type_lut = init_forward_sensor_type_lut();
 static const BackwardSensorTypeLut backward_sensor_type_lut = init_backward_sensor_type_lut();
 
+
 struct Sensor : public ubuntu::application::sensors::Sensor
 {
     typedef ubuntu::platform::shared_ptr<Sensor> Ptr;

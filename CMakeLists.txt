@@ -80,6 +80,4 @@ add_subdirectory(examples/)
 
 #### Enable tests
 include(CTest)
-set(GTEST_ROOT /usr/src/gtest)
 add_subdirectory(tests/)
-add_subdirectory(${GTEST_ROOT} ${CMAKE_CURRENT_BINARY_DIR}/gtest)
